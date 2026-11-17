@@ -13,14 +13,14 @@ THEMES = {
     "dark": {
         "bg": "#0D1117",
         "border": "#30363D",
-        "star": "#58A6FF",
+        "star": "#E3B341",
         "num": "#E6EDF3",
         "label": "#8B949E",
     },
     "light": {
         "bg": "#FFFFFF",
         "border": "#D0D7DE",
-        "star": "#0969DA",
+        "star": "#BF8700",
         "num": "#1F2328",
         "label": "#656D76",
     },
@@ -67,7 +67,7 @@ def render_stars_svg(count: int, mode: str) -> str:
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{total_w}" height="26" viewBox="0 0 {total_w} 26" role="img" aria-label="{num_text} Stars earned">
   <title>{num_text} Stars earned across owned public repositories</title>
   <rect x="0.5" y="0.5" width="{total_w - 1}" height="25" rx="6" fill="{t['bg']}" stroke="{t['border']}" stroke-width="1" />
-  <path d="M16.5 6.8l1.68 3.4 3.75.55-2.71 2.64.64 3.74L16.5 15.36l-3.36 1.77.64-3.74-2.71-2.64 3.75-.55 1.68-3.4z" fill="none" stroke="{t['star']}" stroke-width="1.35" stroke-linejoin="round" />
+  <path d="M16.5 6.8l1.68 3.4 3.75.55-2.71 2.64.64 3.74L16.5 15.36l-3.36 1.77.64-3.74-2.71-2.64 3.75-.55 1.68-3.4z" fill="{t['star']}" />
   <text x="{num_x}" y="17.3" font-family="{FONT_SANS}" font-size="13" font-weight="600" fill="{t['num']}">{num_text}</text>
   <text x="{label_x}" y="17.1" font-family="{FONT_SANS}" font-size="11.5" font-weight="400" fill="{t['label']}">Stars earned</text>
 </svg>
