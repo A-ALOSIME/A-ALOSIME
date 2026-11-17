@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-"""Fetch total stars earned across owned public repositories and generate theme-aware SVGs."""
+"""Fetch total stars earned across owned public repositories and generate theme-aware inline SVGs."""
 
 import json
+import math
 import os
 import urllib.request
 from pathlib import Path
@@ -11,22 +12,29 @@ ASSETS_DIR = Path(__file__).resolve().parent.parent / "assets"
 
 THEMES = {
     "dark": {
-        "bg": "#0D1117",
-        "border": "#30363D",
         "star": "#E3B341",
         "num": "#E6EDF3",
         "label": "#8B949E",
     },
     "light": {
-        "bg": "#FFFFFF",
-        "border": "#D0D7DE",
-        "star": "#BF8700",
+        "star": "#D49B00",
         "num": "#1F2328",
         "label": "#656D76",
     },
 }
 
 FONT_SANS = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif"
+
+
+def star_polygon_points(cx: float, cy: float, outer_r: float, inner_r: float) -> str:
+    pts = []
+    for i in range(10):
+        angle = math.radians(-90 + i * 36)
+        r = outer_r if i % 2 == 0 else inner_r
+        x = cx + r * math.cos(angle)
+        y = cy + r * math.sin(angle)
+        pts.append(f"{x:.2f},{y:.2f}")
+    return " ".join(pts)
 
 
 def fetch_owned_public_stars(username: str) -> int:
@@ -59,17 +67,17 @@ def fetch_owned_public_stars(username: str) -> int:
 def render_stars_svg(count: int, mode: str) -> str:
     t = THEMES[mode]
     num_text = f"{count:,}"
-    num_width = max(9, len(num_text) * 8)
-    num_x = 29
-    label_x = num_x + num_width + 6
+    num_width = max(10, len(num_text) * 9)
+    num_x = 22
+    label_x = num_x + num_width + 5
     total_w = label_x + 76
+    pts = star_polygon_points(8.5, 11.4, 7.2, 3.15)
 
-    return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{total_w}" height="26" viewBox="0 0 {total_w} 26" role="img" aria-label="{num_text} Stars earned">
-  <title>{num_text} Stars earned across owned public repositories</title>
-  <rect x="0.5" y="0.5" width="{total_w - 1}" height="25" rx="6" fill="{t['bg']}" stroke="{t['border']}" stroke-width="1" />
-  <path d="M16.5 6.8l1.68 3.4 3.75.55-2.71 2.64.64 3.74L16.5 15.36l-3.36 1.77.64-3.74-2.71-2.64 3.75-.55 1.68-3.4z" fill="{t['star']}" />
-  <text x="{num_x}" y="17.3" font-family="{FONT_SANS}" font-size="13" font-weight="600" fill="{t['num']}">{num_text}</text>
-  <text x="{label_x}" y="17.1" font-family="{FONT_SANS}" font-size="11.5" font-weight="400" fill="{t['label']}">Stars earned</text>
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{total_w}" height="22" viewBox="0 0 {total_w} 22" role="img" aria-label="{num_text} stars earned">
+  <title>{num_text} stars earned across owned public repositories</title>
+  <polygon points="{pts}" fill="{t['star']}" />
+  <text x="{num_x}" y="16.8" font-family="{FONT_SANS}" font-size="15" font-weight="600" fill="{t['num']}">{num_text}</text>
+  <text x="{label_x}" y="16.4" font-family="{FONT_SANS}" font-size="12.5" font-weight="400" fill="{t['label']}">stars earned</text>
 </svg>
 '''
 
@@ -80,7 +88,7 @@ def main() -> None:
     for mode in ("dark", "light"):
         out = ASSETS_DIR / f"stars-{mode}.svg"
         out.write_text(render_stars_svg(total, mode), encoding="utf-8")
-    print(f"Updated stars SVGs for {USERNAME}: {total} stars earned")
+    print(f"Updated borderless inline stars SVGs for {USERNAME}: {total} stars earned")
 
 
 if __name__ == "__main__":
