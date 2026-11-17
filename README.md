@@ -4,14 +4,12 @@ Information Systems student at Imam Muhammad ibn Saud Islamic University (IMSIU)
 
 Outside of coursework, I have led student technical initiatives at university, including the IEEE IMSIU Student Branch.
 
-### Featured Projects
+<h3>
+  <a href="https://github.com/A-ALOSIME?tab=repositories"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/stars-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/stars-light.svg" /><img align="right" alt="Total stars earned across owned public repositories" src="./assets/stars-dark.svg" height="26" /></picture></a>Featured Projects
+</h3>
 
 <p align="left">
   <a href="https://github.com/A-ALOSIME/kinana"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/card-kinana-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/card-kinana-light.svg" /><img alt="Kinana — Offline-first desktop password manager with local encryption. Built with Rust, Tauri, React, and TypeScript." src="./assets/card-kinana-dark.svg" width="268" /></picture></a>&nbsp;&nbsp;<a href="https://github.com/A-ALOSIME/LUB"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/card-lub-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/card-lub-light.svg" /><img alt="LUB (لُبّ) — Student clubs and councils platform. Collaborative graduation project built with Next.js, TypeScript, and PostgreSQL." src="./assets/card-lub-dark.svg" width="268" /></picture></a>&nbsp;&nbsp;<a href="https://github.com/A-ALOSIME/IEEE-IMSIU"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/card-ieee-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/card-ieee-light.svg" /><img alt="IEEE IMSIU — Official website and portal for the IEEE IMSIU student branch. Built with Astro, TypeScript, and Cloudflare." src="./assets/card-ieee-dark.svg" width="268" /></picture></a>
-</p>
-
-<p align="left">
-  <a href="https://github.com/A-ALOSIME?tab=repositories"><img src="https://img.shields.io/github/stars/A-ALOSIME?affiliations=OWNER&style=flat-square&label=%E2%98%85%20Total%20Stars%20Earned&labelColor=161B22&color=21262D" alt="Total Stars Earned across owned public repositories" /></a>
 </p>
 
 ### Technologies
@@ -28,5 +26,5 @@ Outside of coursework, I have led student technical initiatives at university, i
 ### Connect
 
 <p align="left">
-  <a href="https://www.linkedin.com/in/a-alosime/"><img src="./assets/badge-linkedin.svg" alt="LinkedIn" /></a>&nbsp;<a href="https://ahamdalosime.portfoliobox.net/"><img src="./assets/badge-portfolio.svg" alt="Portfolio" /></a>
+  <a href="https://www.linkedin.com/in/a-alosime/"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/connect-linkedin-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/connect-linkedin-light.svg" /><img alt="LinkedIn — linkedin.com/in/a-alosime" src="./assets/connect-linkedin-dark.svg" width="268" /></picture></a>&nbsp;&nbsp;<a href="https://ahamdalosime.portfoliobox.net/"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/connect-portfolio-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./assets/connect-portfolio-light.svg" /><img alt="Portfolio — ahamdalosime.portfoliobox.net" src="./assets/connect-portfolio-dark.svg" width="268" /></picture></a>
 </p>
